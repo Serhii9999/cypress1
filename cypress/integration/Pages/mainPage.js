@@ -15,7 +15,7 @@ class mainPage{
      return this
     
     }
-    
+
     clickLanguagePage() {
         cy.wait(1000)
         cy.get('a[id="icp-nav-flyout"]').click()
