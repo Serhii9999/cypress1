@@ -9,7 +9,6 @@ class mainPage{
     sectionDropDown(value) {
         cy.get('#searchDropdownBox').select(first).click()
     }
-
     clickSearch() {
      cy.get('input[id="nav-search-submit-button"]').click() 
      return this
