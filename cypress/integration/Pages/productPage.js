@@ -15,8 +15,16 @@ class productPage {
          cy.get('i[class="a-icon a-icon-star-medium a-star-medium-4"]').click()
      }
 
-     clickUnder25Button() {
-         cy.get('[id="p_36/1253503011"]/span/a/span').click()
+     setLowPrice(value) {
+        cy.get('#low-price').type(value)
+     }
+
+     setHighPrice(value) {
+         cy.get('#high-price').type(value)
+     }
+
+     clickPriceSubmitButton() {
+         cy.get('input[aria-labelledby="a-autoid-1-announce"]').click()
      }
 
      findFirstSamsungProduct() {

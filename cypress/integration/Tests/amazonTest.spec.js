@@ -9,7 +9,20 @@ describe('Tests', function(){
     const pp = new productPage()
 
 
-
+    it('Advanced product search', function(){
+        cy.visit('https://www.amazon.com/s?i=specialty-aps&bbn=16225009011&rh=n%3A%2116225009011%2Cn%3A502394&ref=nav_em__nav_desktop_sa_intl_camera_and_photo_0_2_5_3');
+        pp.click4StarsButton()
+        cy.wait(3000)
+       pp.setLowPrice(5)
+       pp.setHighPrice(25)
+       pp.clickPriceSubmitButton()
+        const expectedSamsungProduct = 'SAMSUNG: EVO Select 128GB MicroSDXC UHS-I U3 100MB/s Full HD & 4K UHD Memory Card with Adapter (MB-ME128HA)';
+        pp.findFirstSamsungProduct().should(($div) => {
+            
+         expect($div.get(0).innerText).to.eq(expectedSamsungProduct)
+       })
+     })
+ 
  
     it('Test simple search', function(){
       
@@ -105,18 +118,7 @@ describe('Tests', function(){
           })
     })
 
-    it('Advanced product search', function(){
-       cy.visit('https://www.amazon.com/s?i=specialty-aps&bbn=16225009011&rh=n%3A%2116225009011%2Cn%3A502394&ref=nav_em__nav_desktop_sa_intl_camera_and_photo_0_2_5_3');
-       pp.click4StarsButton()
-       cy.wait(3000)
-       pp.clickUnder25Button()
-       const expectedSamsungProduct = 'SAMSUNG: EVO Select 128GB MicroSDXC UHS-I U3 100MB/s Full HD & 4K UHD Memory Card with Adapter (MB-ME128HA)';
-       pp.findFirstSamsungProduct().should(($div) => {
-           
-        expect($div.get(0).innerText).to.eq(expectedSamsungProduct)
-      })
-    })
-
+  
 
 
 
