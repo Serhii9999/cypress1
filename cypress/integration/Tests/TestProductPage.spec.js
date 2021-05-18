@@ -13,11 +13,15 @@ describe('Tests', function(){
     const ap = new accountPage()
 
 
-    
+    beforeEach(() => {
+        cy.visit('')
+        
+      })
+
    
     it('Test simple search', function(){
       
-        cy.visit('https://amazon.com')
+       
         mp.searchFor('Java')
         mp.sectionDropDown('Books')
         mp.clickSearch()
@@ -30,7 +34,7 @@ describe('Tests', function(){
 
     it('Test  product search 2', function(){
         const thirdGermanJavaBook = 'Agile objektorientierte Software-Entwicklung';
-        cy.visit('https://amazon.com')
+      
         mp.searchFor('Java')
         mp.sectionDropDown('Books')
         mp.clickSearch()
@@ -47,7 +51,7 @@ describe('Tests', function(){
  
     it('Test  product search 3', function(){
         
-        cy.visit('https://amazon.com')
+      
         mp.clickMenuButton()
         mp.clickSeeAllProductsInMenuButton()
         mp.clickSportSectionButton()
@@ -60,7 +64,7 @@ describe('Tests', function(){
 
     it('Test  product search 4', function(){
         
-        cy.visit('https://amazon.com')
+       
         mp.clickMenuButton()
         mp.clickSeeAllProductsInMenuButton()
         mp.clickSportSectionButton()
@@ -75,7 +79,7 @@ describe('Tests', function(){
     })
 
     it('Test quantity of books on a page', function(){
-        cy.visit('https://amazon.com')
+       
         mp.searchFor('Java')
         mp.sectionDropDown('Books')
         mp.clickSearch()
@@ -88,10 +92,9 @@ describe('Tests', function(){
 
     it('Test change shipping price when country is changed1', function(){
         const firstCountry = 'India'
-       
         const ShippingTextForFirstCountry = '$437.05 Shipping & Import Fees Deposit to India'
     
-        cy.visit('https://amazon.com')
+       
         mp.searchFor('Samsung Electronics Samsung Galaxy S21 5G')
         mp.clickSearch()
         pp.clickOnFirstProductOnThePage()
@@ -111,7 +114,7 @@ describe('Tests', function(){
         const secondCountry = 'Chile'
       
         const ShippingTextForSecondCountry = '$265.94 Import Fees Deposit & FREE Shipping to Chile'
-        cy.visit('https://amazon.com')
+        
         mp.searchFor('Samsung Electronics Samsung Galaxy S21 5G')
         mp.clickSearch()
         pp.clickOnFirstProductOnThePage()
@@ -129,7 +132,7 @@ describe('Tests', function(){
     })
 
     it('Test product search', function(){
-        cy.visit('https://amazon.com')
+        
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
@@ -146,7 +149,7 @@ describe('Tests', function(){
      })
  
     it('Test go to electronics page', function(){
-        cy.visit('https://amazon.com')
+       
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
@@ -156,7 +159,7 @@ describe('Tests', function(){
 
     it('Check first books title', function(){
       
-        cy.visit('https://amazon.com')
+        
         mp.searchFor('Java')
         mp.clickSearch()
         pp.getTitleOfTheFirstBook().should(($div) => {
@@ -167,7 +170,7 @@ describe('Tests', function(){
 
     it('Check first books author', function(){
       
-        cy.visit('https://amazon.com')
+        
         mp.searchFor('Java')
         mp.clickSearch()
         pp.getAuthorOfTheFirstBook().should(($div) => {

@@ -11,10 +11,14 @@ describe('Tests', function(){
     const pp = new productPage()
     const cp = new cartPage()
     const ap = new accountPage()
+    beforeEach(() => {
+        cy.visit('')
+        
+      })
 
 
     it('Test adding 1 item to a cart ', function(){
-        cy.visit('https://amazon.com')
+           
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
@@ -29,7 +33,7 @@ describe('Tests', function(){
       })
 
     it('Test add 12 similar items', function(){
-        cy.visit('https://amazon.com')
+           
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
@@ -50,7 +54,7 @@ describe('Tests', function(){
 
     })
     it('Test adding 3 items to a cart ', function(){
-        cy.visit('https://amazon.com')
+        
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
@@ -80,7 +84,7 @@ describe('Tests', function(){
       })
 
     it('Test proceed to checkout button ', function(){
-        cy.visit('https://amazon.com')
+        
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
@@ -98,7 +102,7 @@ describe('Tests', function(){
         
       })
     it('Test delete button in cart ', function(){
-        cy.visit('https://amazon.com')
+       
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
@@ -117,7 +121,7 @@ describe('Tests', function(){
 
 
     it('Test cart is  empty ', function(){
-        cy.visit('https://amazon.com')
+       
       mp.clickCartButton()
       cy.get('h2').should(($div) => {
             

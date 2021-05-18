@@ -12,9 +12,13 @@ describe('Tests', function(){
     const cp = new cartPage()
     const ap = new accountPage()
 
+    beforeEach(() => {
+        cy.visit('')
+        
+      })
 
     it('Test visit Language page', function(){
-        cy.visit('https://amazon.com')
+       
         mp.clickLanguagePage()
       const changeLanguageUrl = 'https://www.amazon.com/gp/customer-preferences/select-language/ref=topnav_lang_ais?preferencesReturnUrl=%2F';
       cy.url().as('url');
@@ -25,7 +29,7 @@ describe('Tests', function(){
     })
 
     it('Test change Language', function(){
-        cy.visit('https://amazon.com')
+       
         mp.clickLanguagePage()
         lp.clickEnglishLanguage().should('be.checked')
 
@@ -40,7 +44,7 @@ describe('Tests', function(){
     })
 
     it('Test change currency', function(){
-        cy.visit('https://amazon.com')
+       
         mp.clickLanguagePage()
         cy.wait(2000)
         lp.clickCurrencyDropDown()
