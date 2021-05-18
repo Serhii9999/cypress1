@@ -12,20 +12,25 @@ describe('Tests', function(){
     const cp = new cartPage()
     const ap = new accountPage()
 
-       
-    
-
-    it('Test "your amazon" page availability', function(){
+    beforeEach(() => {
         cy.visit('')
-
+        
         const email = 'serhii.maletych@gmail.com'
         const password = '1234567mal'
-        const name = 'Serhii'
+        
         mp.clickSignInButton()
         ap.enterEmailField(email)
         ap.clickContinueButton()
         ap.enterPasswordField(password)
         ap.clickSignInButton()
+      })
+
+      
+
+
+    it('Test "your amazon" page availability', function(){
+
+        
         mp.clickMainPageBytton()
         mp.clickYourAmazonButton()
        cy.wait(1000)
@@ -35,15 +40,8 @@ describe('Tests', function(){
     })
 })
     it('Test correct user name', function(){
-        cy.visit('')
-        const email = 'serhii.maletych@gmail.com'
-        const password = '1234567mal'
+      
         const name = 'Serhii'
-        mp.clickSignInButton()
-        ap.enterEmailField(email)
-        ap.clickContinueButton()
-        ap.enterPasswordField(password)
-        ap.clickSignInButton()
         cy.get('#nav-link-accountList').should(($div) => {
             expect($div.get(0).innerText).to.contain(name)
         
@@ -52,14 +50,7 @@ describe('Tests', function(){
     })
 
     it('Test sign out', function(){
-        cy.visit('')
-        const email = 'serhii.maletych@gmail.com'
-        const password = '1234567mal'
-        mp.clickSignInButton()
-        ap.enterEmailField(email)
-        ap.clickContinueButton()
-        ap.enterPasswordField(password)
-        ap.clickSignInButton()
+      
         mp.clickSignInButton()
         ap.hoverOnAccountButton()
         ap.clickonSignOutButton()
@@ -67,14 +58,7 @@ describe('Tests', function(){
     })
     
     it('Test sign in ', function(){
-        cy.visit('')
-        const email = 'serhii.maletych@gmail.com'
-        const password = '1234567mal'
-        mp.clickSignInButton()
-        ap.enterEmailField(email)
-        ap.clickContinueButton()
-        ap.enterPasswordField(password)
-        ap.clickSignInButton()
+        
         mp.clickSignInButton()
         cy.get('h1').should(($div) => {
             expect($div.get(0).innerText).to.eq('Your Account')
@@ -85,8 +69,8 @@ describe('Tests', function(){
 
     })
 
+
+
+
   
-
-
-
 
