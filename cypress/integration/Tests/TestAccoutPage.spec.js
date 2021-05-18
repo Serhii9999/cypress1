@@ -16,7 +16,7 @@ describe('Tests', function(){
     
 
     it('Test "your amazon" page availability', function(){
-        cy.visit('https://amazon.com')
+        cy.visit('')
 
         const email = 'serhii.maletych@gmail.com'
         const password = '1234567mal'
@@ -35,8 +35,7 @@ describe('Tests', function(){
     })
 })
     it('Test correct user name', function(){
-        cy.visit('https://amazon.com')
-
+        cy.visit('')
         const email = 'serhii.maletych@gmail.com'
         const password = '1234567mal'
         const name = 'Serhii'
@@ -53,8 +52,7 @@ describe('Tests', function(){
     })
 
     it('Test sign out', function(){
-        cy.visit('https://amazon.com')
-
+        cy.visit('')
         const email = 'serhii.maletych@gmail.com'
         const password = '1234567mal'
         mp.clickSignInButton()
@@ -69,8 +67,7 @@ describe('Tests', function(){
     })
     
     it('Test sign in ', function(){
-        cy.visit('https://amazon.com')
-
+        cy.visit('')
         const email = 'serhii.maletych@gmail.com'
         const password = '1234567mal'
         mp.clickSignInButton()
