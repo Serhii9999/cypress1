@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 
 class mainPage{
+
     searchFor(value) {
          cy.get('input[id="twotabsearchtextbox"]').click().wait(1000).type(value)
          cy.wait(2000)
@@ -82,6 +83,21 @@ class mainPage{
     clickMainPageBytton() {
         cy.get('#nav-logo-sprites').click({force:true})
     }
+
+    clickShippingSection() {
+        cy.get('#nav-global-location-popover-link').click({force:true})
+        cy.wait(1000)
+    }
+
+    changeShippingCountryButton(value) {
+        cy.get('#GLUXCountryList',).select(value, {force:true})
+        cy.wait(1000)
+    }
+    clickShippingDoneButton() {
+        cy.get('#GLUXCountryListDropdown').click()
+    }
+    
+
 
    
 

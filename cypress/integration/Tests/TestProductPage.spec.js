@@ -12,6 +12,48 @@ describe('Tests', function(){
     const cp = new cartPage()
     const ap = new accountPage()
 
+    it('Test change shipping price when country is changed1', function(){
+        const firstCountry = 'India'
+       
+        const ShippingTextForFirstCountry = '$437.05 Shipping & Import Fees Deposit to India'
+    
+        cy.visit('https://amazon.com')
+        mp.searchFor('Samsung Electronics Samsung Galaxy S21 5G')
+        mp.clickSearch()
+        pp.clickOnFirstProductOnThePage()
+        mp.clickShippingSection()
+        mp.changeShippingCountryButton(firstCountry)
+        pp.clickShippingDoneWhenOnProductPageButton()
+        cy.get('#exports_desktop_qualifiedBuybox_tlc_feature_div').should(($div) => {
+            
+            expect($div.get(0).innerText).to.contain(ShippingTextForFirstCountry)
+          })
+
+
+    })
+
+    it('Test change shipping price when country is changed2', function(){
+     
+        const secondCountry = 'Chile'
+      
+        const ShippingTextForSecondCountry = '$265.94 Import Fees Deposit & FREE Shipping to Chile'
+        cy.visit('https://amazon.com')
+        mp.searchFor('Samsung Electronics Samsung Galaxy S21 5G')
+        mp.clickSearch()
+        pp.clickOnFirstProductOnThePage()
+       
+
+          mp.clickShippingSection()
+          mp.changeShippingCountryButton(secondCountry)
+          pp.clickShippingDoneWhenOnProductPageButton()
+          cy.get('#exports_desktop_qualifiedBuybox_tlc_feature_div').should(($div) => {
+              
+              expect($div.get(0).innerText).to.contain(ShippingTextForSecondCountry)
+            })
+        
+
+    })
+
     it('Advanced product search', function(){
         cy.visit('https://amazon.com')
         mp.clickMenuButton()

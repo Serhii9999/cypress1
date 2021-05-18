@@ -46,6 +46,10 @@ class productPage {
         cy.wait(1000)
     }
 
+    clickShippingDoneWhenOnProductPageButton() {
+        cy.get('button[name="glowDoneButton"]').click()
+    }
+
   
 }
 export default productPage

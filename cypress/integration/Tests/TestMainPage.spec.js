@@ -13,7 +13,24 @@ describe('Tests', function(){
     const ap = new accountPage()
 
 
+  
+
+
+    it('Test change shipping country', function(){
+        const country = 'Ukraine'
+        cy.visit('https://amazon.com')
+        mp.clickShippingSection()
+        mp.changeShippingCountryButton(country)
+        mp.clickShippingDoneButton()
+        cy.get('#nav-global-location-popover-link').should(($div) => {
+            
+            expect($div.get(0).innerText).to.contain(country)
+          })
+
+
+    })
        
+
     it('Test simple search', function(){
       
         cy.visit('https://amazon.com')
@@ -26,6 +43,7 @@ describe('Tests', function(){
         cy.get('@url').should('contain', searchURL);
 
     })
+
     it('Test go to cart page ', function(){
       
         cy.visit('https://amazon.com')

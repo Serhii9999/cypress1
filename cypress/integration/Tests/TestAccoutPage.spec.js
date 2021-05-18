@@ -13,6 +13,25 @@ describe('Tests', function(){
     const ap = new accountPage()
 
        
+
+    it('Test correct user name', function(){
+        cy.visit('https://amazon.com')
+
+        const email = 'serhii.maletych@gmail.com'
+        const password = '1234567mal'
+        const name = 'Serhii'
+        mp.clickSignInButton()
+        ap.enterEmailField(email)
+        ap.clickContinueButton()
+        ap.enterPasswordField(password)
+        ap.clickSignInButton()
+        cy.get('#nav-link-accountList').should(($div) => {
+            expect($div.get(0).innerText).to.contain(name)
+        
+
+    })
+    })
+    
     it('Test sign out', function(){
         cy.visit('https://amazon.com')
 
@@ -25,7 +44,7 @@ describe('Tests', function(){
         ap.clickSignInButton()
         mp.clickSignInButton()
         ap.hoverOnAccountButton()
-        
+        ap.clickonSignOutButton()
 
     })
     
@@ -54,4 +73,3 @@ describe('Tests', function(){
 
 
 
-    
