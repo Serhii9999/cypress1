@@ -30,6 +30,23 @@ class productPage {
      findFirstSamsungProduct() {
          return cy.get('span[class="a-size-base-plus a-color-base a-text-normal"]').first()
      }
+
+     clickOnFirstProductOnThePage() {
+         cy.get('img[data-image-index="1"]').click()
+         cy.wait(1000)
+     }
+
+     clickOnSecondProductOnThePage() {
+        cy.get('img[data-image-index="2"]').click()
+        cy.wait(1000)
+    }
+
+    clickOnThirdProductOnThePage() {
+        cy.get('img[data-image-index="3"]').click()
+        cy.wait(1000)
+    }
+
+  
 }
 export default productPage
 

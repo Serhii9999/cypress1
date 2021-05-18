@@ -2,15 +2,19 @@ import * as _ from 'lodash';
 import mainPage from '../Pages/mainPage';
 import languagePage from '../Pages/languagePage';
 import productPage from '../Pages/productPage';
+import cartPage from '../Pages/cartPage';
 
 describe('Tests', function(){
     const mp = new mainPage()
     const lp = new languagePage()
     const pp = new productPage()
-
+    const cp = new cartPage()
 
     it('Advanced product search', function(){
-        cy.visit('https://www.amazon.com/s?i=specialty-aps&bbn=16225009011&rh=n%3A%2116225009011%2Cn%3A502394&ref=nav_em__nav_desktop_sa_intl_camera_and_photo_0_2_5_3');
+        cy.visit('https://amazon.com')
+        mp.clickMenuButton()
+        mp.clickElectronicsSectionButton()
+        mp.clickCameraAndPhotoPageButton()
         pp.click4StarsButton()
         cy.wait(3000)
        pp.setLowPrice(5)

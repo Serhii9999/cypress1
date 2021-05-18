@@ -7,7 +7,7 @@ class mainPage{
          
   }
     sectionDropDown(value) {
-        cy.get('#searchDropdownBox').select(first).click()
+        cy.get('#searchDropdownBox', {force:true}).select(value, {force:true})
     }
     clickSearch() {
      cy.get('input[id="nav-search-submit-button"]').click() 
@@ -23,18 +23,18 @@ class mainPage{
 
     clickMenuButton() {
         cy.wait(1000)
-        return cy.get('a[id="nav-hamburger-menu"]').click()
+        return cy.get('a[id="nav-hamburger-menu"]').click({force: true})
         
     }
 
     clickElectronicsSectionButton() {
         cy.wait(1000)
-        return cy.get('a[data-menu-id="5"]').contains('Electronic').click()
+        return cy.get('a[data-menu-id="5"]').contains('Electronic').click({force: true})
     }
 
     clickCameraAndPhotoPageButton() {
         cy.wait(1000)
-        return cy.get('a[class="hmenu-item"]').contains('Camera').click()
+        return cy.get('a[class="hmenu-item"]').contains('Camera').click({force: true})
     }
 
     clickCurrencyButton() {
@@ -44,6 +44,47 @@ class mainPage{
     getSignInText() {
         return cy.get('#nav-link-accountList-nav-line-1')
     }
+
+    clickSignInButton() {
+        cy.get('#nav-link-accountList').click({force: true})
+    }
+
+    clickTodayDealsButton() {
+        cy.get('a[data-csa-c-slot-id="nav_cs_0"]').click({force:true})
+        cy.wait(1000)
+    }
+
+    clickCustomerServiceButton() {
+        cy.get('a[data-csa-c-slot-id="nav_cs_1"]').click({force:true})
+        cy.wait(1000)
+    }
+
+    clickGiftCardsButton() {
+        cy.get('a[data-csa-c-slot-id="nav_cs_2"]').click({force:true})
+        cy.wait(1000)
+    }
+
+    clickRegistryButton() {
+        cy.get('a[data-csa-c-slot-id="nav_cs_3"]').click({force:true})
+        cy.wait(1000)
+    }
+    // clickSellButton() {
+    //     cy.get('a[data-csa-c-slot-id="nav_cs_4"]').click({force:true})
+    //     cy.wait(1000)
+    // }
+
+  
+    clickCartButton(){
+        cy.get('#nav-cart').click({force:true})
+        cy.wait(1000)
+    }
+
+    clickMainPageBytton() {
+        cy.get('#nav-logo-sprites').click({force:true})
+    }
+
+   
+
 
 
   
