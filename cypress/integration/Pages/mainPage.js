@@ -28,6 +28,19 @@ class mainPage{
         
     }
 
+    clickSeeAllProductsInMenuButton() {
+        return cy.get('a[class="hmenu-item hmenu-compressed-btn"]').eq(0).click()
+    }
+
+    clickSportSectionButton() {
+        return cy.get('a[data-menu-id="23"]').click()
+    }
+
+    clickCSportAndFitnessPageButton() {
+        cy.wait(1000)
+        return cy.get('a[class="hmenu-item"]').contains('Sports & Fitness').click({force: true})
+    }
+
     clickElectronicsSectionButton() {
         cy.wait(1000)
         return cy.get('a[data-menu-id="5"]').contains('Electronic').click({force: true})
@@ -95,6 +108,11 @@ class mainPage{
     }
     clickShippingDoneButton() {
         cy.get('#GLUXCountryListDropdown').click()
+    }
+
+    clickYourAmazonButton() {
+        cy.get('#nav-your-amazon').click({force:true})
+        cy.wait(1000)
     }
     
 

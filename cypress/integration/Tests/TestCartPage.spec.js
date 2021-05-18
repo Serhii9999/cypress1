@@ -13,6 +13,21 @@ describe('Tests', function(){
     const ap = new accountPage()
 
 
+    it('Test adding 1 item to a cart ', function(){
+        cy.visit('https://amazon.com')
+        mp.clickMenuButton()
+        mp.clickElectronicsSectionButton()
+        mp.clickCameraAndPhotoPageButton()
+        pp.clickOnFirstProductOnThePage()
+        cp.clickAddProductToCartButton()  
+        cp.clickGoToCartFromProductPageButton()
+        cy.get('#sc-subtotal-label-activecart').should(($div) => {
+            
+            expect($div.get(0).innerText).to.eq('Subtotal (1 item):')
+          })
+        
+      })
+
     it('Test add 12 similar items', function(){
         cy.visit('https://amazon.com')
         mp.clickMenuButton()
@@ -99,20 +114,7 @@ describe('Tests', function(){
         
       })
    
-    it('Test adding 1 item to a cart ', function(){
-        cy.visit('https://amazon.com')
-        mp.clickMenuButton()
-        mp.clickElectronicsSectionButton()
-        mp.clickCameraAndPhotoPageButton()
-        pp.clickOnFirstProductOnThePage()
-        cp.clickAddProductToCartButton()  
-        cp.clickGoToCartFromProductPageButton()
-        cy.get('#sc-subtotal-label-activecart').should(($div) => {
-            
-            expect($div.get(0).innerText).to.eq('Subtotal (1 item):')
-          })
-        
-      })
+
 
     it('Test cart is  empty ', function(){
         cy.visit('https://amazon.com')

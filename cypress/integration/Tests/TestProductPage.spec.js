@@ -12,6 +12,80 @@ describe('Tests', function(){
     const cp = new cartPage()
     const ap = new accountPage()
 
+
+    
+   
+    it('Test simple search', function(){
+      
+        cy.visit('https://amazon.com')
+        mp.searchFor('Java')
+        mp.sectionDropDown('Books')
+        mp.clickSearch()
+        const searchURL = 'https://www.amazon.com/s?k=Java&i=stripbooks-intl-ship&ref=nb_sb_noss';
+        cy.url().as('url');
+
+        cy.get('@url').should('contain', searchURL);
+
+    })
+
+    it('Test  product search 2', function(){
+        const thirdGermanJavaBook = 'Agile objektorientierte Software-Entwicklung';
+        cy.visit('https://amazon.com')
+        mp.searchFor('Java')
+        mp.sectionDropDown('Books')
+        mp.clickSearch()
+        pp.clickGermanCheckBoxInBooksSection()
+    
+
+        pp.getBookTitle().eq(2).should(($div) => {
+            
+            expect($div.get(0).innerText).to.contain(thirdGermanJavaBook)
+          })
+    })
+
+
+ 
+    it('Test  product search 3', function(){
+        
+        cy.visit('https://amazon.com')
+        mp.clickMenuButton()
+        mp.clickSeeAllProductsInMenuButton()
+        mp.clickSportSectionButton()
+        mp.clickCSportAndFitnessPageButton()
+        pp.getSportProductTitle().should('have.length', 33)
+
+
+    
+    })
+
+    it('Test  product search 4', function(){
+        
+        cy.visit('https://amazon.com')
+        mp.clickMenuButton()
+        mp.clickSeeAllProductsInMenuButton()
+        mp.clickSportSectionButton()
+        mp.clickCSportAndFitnessPageButton()
+        pp.setLowPrice(19000)
+        pp.setHighPrice(20000)
+        pp.clickPriceSubmitButton()
+        pp.getSportProductTitle().should('have.length', 1)
+
+
+    
+    })
+
+    it('Test quantity of books on a page', function(){
+        cy.visit('https://amazon.com')
+        mp.searchFor('Java')
+        mp.sectionDropDown('Books')
+        mp.clickSearch()
+        pp.getBookTitle().should('have.length', 16)
+        
+
+    })
+
+  
+
     it('Test change shipping price when country is changed1', function(){
         const firstCountry = 'India'
        
@@ -54,7 +128,7 @@ describe('Tests', function(){
 
     })
 
-    it('Advanced product search', function(){
+    it('Test product search', function(){
         cy.visit('https://amazon.com')
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()

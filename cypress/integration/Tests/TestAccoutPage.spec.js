@@ -13,7 +13,27 @@ describe('Tests', function(){
     const ap = new accountPage()
 
        
+    
 
+    it('Test "your amazon" page availability', function(){
+        cy.visit('https://amazon.com')
+
+        const email = 'serhii.maletych@gmail.com'
+        const password = '1234567mal'
+        const name = 'Serhii'
+        mp.clickSignInButton()
+        ap.enterEmailField(email)
+        ap.clickContinueButton()
+        ap.enterPasswordField(password)
+        ap.clickSignInButton()
+        mp.clickMainPageBytton()
+        mp.clickYourAmazonButton()
+       cy.wait(1000)
+        ap.getTopTextOfYourAmazonPage().should(($div) => {
+            expect($div.get(0).innerText).to.contain('More to Explore')
+        
+    })
+})
     it('Test correct user name', function(){
         cy.visit('https://amazon.com')
 
@@ -31,7 +51,7 @@ describe('Tests', function(){
 
     })
     })
-    
+
     it('Test sign out', function(){
         cy.visit('https://amazon.com')
 

@@ -50,6 +50,20 @@ class productPage {
         cy.get('button[name="glowDoneButton"]').click()
     }
 
+    getBookTitle() {
+        return cy.get('h2[class="a-size-mini a-spacing-none a-color-base s-line-clamp-2"]')
+    }
+
+    clickGermanCheckBoxInBooksSection() {
+        cy.get('div[class="a-checkbox a-checkbox-fancy s-navigation-checkbox aok-float-left"]').eq(13).click()
+        cy.wait(1000)
+    }
+    getSportProductTitle() {
+       return cy.get('span[class="a-size-base-plus a-color-base a-text-normal"]')
+    }
+    
+    
+
   
 }
 export default productPage

@@ -29,7 +29,12 @@ class accountPage{
     clickonSignOutButton() {
         cy.get('#nav-item-signout').click()
     }
-   
+
+    getTopTextOfYourAmazonPage(){
+        return cy.get('div[class="np-grid-title"]')
+        
+    }
+    
     
 }
 export default accountPage
