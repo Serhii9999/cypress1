@@ -1,16 +1,12 @@
 import * as _ from 'lodash';
 import mainPage from '../Pages/mainPage';
-import languagePage from '../Pages/languagePage';
 import productPage from '../Pages/productPage';
-import cartPage from '../Pages/cartPage';
-import accountPage from '../Pages/accountPage';
 
-describe('Tests', function(){
+
+describe('Tests search', function(){
     const mp = new mainPage()
-    const lp = new languagePage()
     const pp = new productPage()
-    const cp = new cartPage()
-    const ap = new accountPage()
+ 
 
 
     beforeEach(() => {
@@ -18,8 +14,7 @@ describe('Tests', function(){
         
       })
 
-   
-    it('Test simple search', function(){
+      it('Test simple search', function(){
       
        
         mp.searchFor('Java')
@@ -78,6 +73,21 @@ describe('Tests', function(){
     
     })
 
+    })
+
+
+describe('Tests', function(){
+    const mp = new mainPage()
+    const pp = new productPage()
+ 
+
+
+    beforeEach(() => {
+        cy.visit('')
+        
+      })
+
+
     it('Test quantity of books on a page', function(){
        
         mp.searchFor('Java')
@@ -88,13 +98,10 @@ describe('Tests', function(){
 
     })
 
-  
-
     it('Test change shipping price when country is changed1', function(){
+
         const firstCountry = 'India'
         const ShippingTextForFirstCountry = '$437.05 Shipping & Import Fees Deposit to India'
-    
-       
         mp.searchFor('Samsung Electronics Samsung Galaxy S21 5G')
         mp.clickSearch()
         pp.clickOnFirstProductOnThePage()
@@ -110,11 +117,9 @@ describe('Tests', function(){
     })
 
     it('Test change shipping price when country is changed2', function(){
-     
+    
         const secondCountry = 'Chile'
-      
         const ShippingTextForSecondCountry = '$265.94 Import Fees Deposit & FREE Shipping to Chile'
-        
         mp.searchFor('Samsung Electronics Samsung Galaxy S21 5G')
         mp.clickSearch()
         pp.clickOnFirstProductOnThePage()
@@ -154,12 +159,13 @@ describe('Tests', function(){
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
         cy.url().as('url');
+
         cy.get('@url').should('contain', 'camera_and_photo')
+
     })
 
     it('Check first books title', function(){
       
-        
         mp.searchFor('Java')
         mp.clickSearch()
         pp.getTitleOfTheFirstBook().should(($div) => {
@@ -170,7 +176,6 @@ describe('Tests', function(){
 
     it('Check first books author', function(){
       
-        
         mp.searchFor('Java')
         mp.clickSearch()
         pp.getAuthorOfTheFirstBook().should(($div) => {

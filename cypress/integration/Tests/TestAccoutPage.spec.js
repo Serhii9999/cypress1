@@ -7,9 +7,6 @@ import accountPage from '../Pages/accountPage';
 
 describe('Tests', function(){
     const mp = new mainPage()
-    const lp = new languagePage()
-    const pp = new productPage()
-    const cp = new cartPage()
     const ap = new accountPage()
 
     beforeEach(() => {

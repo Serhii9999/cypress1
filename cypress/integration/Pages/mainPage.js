@@ -33,7 +33,7 @@ class mainPage{
     }
 
     clickSportSectionButton() {
-        return cy.get('a[data-menu-id="23"]').click()
+        return cy.get('a[data-menu-id="23"]').click({force:true})
     }
 
     clickCSportAndFitnessPageButton() {

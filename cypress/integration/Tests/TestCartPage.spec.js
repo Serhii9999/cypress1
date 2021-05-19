@@ -1,29 +1,29 @@
 import * as _ from 'lodash';
 import mainPage from '../Pages/mainPage';
-import languagePage from '../Pages/languagePage';
 import productPage from '../Pages/productPage';
 import cartPage from '../Pages/cartPage';
-import accountPage from '../Pages/accountPage';
+
 
 describe('Tests', function(){
     const mp = new mainPage()
-    const lp = new languagePage()
     const pp = new productPage()
     const cp = new cartPage()
-    const ap = new accountPage()
+   
     beforeEach(() => {
         cy.visit('')
-        
-      })
-
-
-    it('Test adding 1 item to a cart ', function(){
-           
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
         mp.clickCameraAndPhotoPageButton()
         pp.clickOnFirstProductOnThePage()
         cp.clickAddProductToCartButton()  
+
+
+
+      })
+
+
+    it('Test adding 1 item to a cart ', function(){
+           
         cp.clickGoToCartFromProductPageButton()
         cy.get('#sc-subtotal-label-activecart').should(($div) => {
             
@@ -34,11 +34,6 @@ describe('Tests', function(){
 
     it('Test add 12 similar items', function(){
            
-        mp.clickMenuButton()
-        mp.clickElectronicsSectionButton()
-        mp.clickCameraAndPhotoPageButton()
-        pp.clickOnFirstProductOnThePage()
-        cp.clickAddProductToCartButton() 
         mp.clickMainPageBytton() 
         mp.clickCartButton()
         cp.clickSelectQuantityBuytton('10+')
@@ -55,11 +50,7 @@ describe('Tests', function(){
     })
     it('Test adding 3 items to a cart ', function(){
         
-        mp.clickMenuButton()
-        mp.clickElectronicsSectionButton()
-        mp.clickCameraAndPhotoPageButton()
-        pp.clickOnFirstProductOnThePage()
-        cp.clickAddProductToCartButton() 
+    
         mp.clickMainPageBytton() 
         mp.clickMenuButton()
         mp.clickElectronicsSectionButton()
@@ -85,11 +76,7 @@ describe('Tests', function(){
 
     it('Test proceed to checkout button ', function(){
         
-        mp.clickMenuButton()
-        mp.clickElectronicsSectionButton()
-        mp.clickCameraAndPhotoPageButton()
-        pp.clickOnFirstProductOnThePage()
-        cp.clickAddProductToCartButton()  
+    
         mp.clickMainPageBytton() 
         mp.clickCartButton()
         cp.clickProceedToCheckoutButton()
@@ -102,12 +89,7 @@ describe('Tests', function(){
         
       })
     it('Test delete button in cart ', function(){
-       
-        mp.clickMenuButton()
-        mp.clickElectronicsSectionButton()
-        mp.clickCameraAndPhotoPageButton()
-        pp.clickOnFirstProductOnThePage()
-        cp.clickAddProductToCartButton()  
+        
         mp.clickMainPageBytton() 
         mp.clickCartButton()
         cp.clickDeleteButton()
@@ -119,17 +101,28 @@ describe('Tests', function(){
       })
    
 
-
-    it('Test cart is  empty ', function(){
+      describe('Test cart for being empty', function(){
+        const mp = new mainPage()
+        const pp = new productPage()
+        const cp = new cartPage()
        
-      mp.clickCartButton()
-      cy.get('h2').should(($div) => {
+        beforeEach(() => {
+            cy.visit('')
             
-        expect($div.get(0).innerText).to.eq('Your Amazon Cart is empty')
-      })
-        
+          })
 
-    })
+          it('Test cart is  empty ', function(){
+       
+            mp.clickCartButton()
+            cy.get('h2').should(($div) => {
+                  
+              expect($div.get(0).innerText).to.eq('Your Amazon Cart is empty')
+            })
+              
+      
+          })
+        })
+ 
 
  
         
