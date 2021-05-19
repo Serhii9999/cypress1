@@ -114,6 +114,11 @@ class mainPage{
         cy.get('#nav-your-amazon').click({force:true})
         cy.wait(1000)
     }
+
+    clickRegistrationButton() {
+        cy.xpath('div[id="nav-flyout-ya-newCust"]/a').click()
+        
+    }
     
 
 

@@ -34,6 +34,8 @@ class accountPage{
         return cy.get('div[class="np-grid-title"]')
         
     }
+
+   
     
     
 }
