@@ -76,7 +76,7 @@ describe('Test cart for being empty', function(){
     })
 
 
-describe('Tests', function(){
+describe('Test adding items to cart', function(){
     const mp = new mainPage()
     const pp = new productPage()
     const cp = new cartPage()

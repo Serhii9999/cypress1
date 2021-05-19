@@ -27,6 +27,25 @@ describe('Tests search', function(){
 
     })
 
+    it('Test product search', function(){
+        
+        mp.clickMenuButton()
+        mp.clickElectronicsSectionButton()
+        mp.clickCameraAndPhotoPageButton()
+        pp.click4StarsButton()
+        cy.wait(3000)
+       pp.setLowPrice(5)
+       pp.setHighPrice(25)
+       pp.clickPriceSubmitButton()
+        const expectedSamsungProduct = 'SAMSUNG: EVO Select 128GB MicroSDXC UHS-I U3 100MB/s Full HD & 4K UHD Memory Card with Adapter (MB-ME128HA)';
+        ep.findFirstSamsungProduct().should(($div) => {
+            
+         expect($div.get(0).innerText).to.eq(expectedSamsungProduct)
+       })
+
+    })
+
+
       it('Test change shipping price when country is changed1', function(){
 
         const firstCountry = 'India'
@@ -66,21 +85,7 @@ describe('Tests search', function(){
 
     })
 
-    it('Test product search', function(){
-        
-        mp.clickMenuButton()
-        mp.clickElectronicsSectionButton()
-        mp.clickCameraAndPhotoPageButton()
-        pp.click4StarsButton()
-        cy.wait(3000)
-       pp.setLowPrice(5)
-       pp.setHighPrice(25)
-       pp.clickPriceSubmitButton()
-        const expectedSamsungProduct = 'SAMSUNG: EVO Select 128GB MicroSDXC UHS-I U3 100MB/s Full HD & 4K UHD Memory Card with Adapter (MB-ME128HA)';
-        ep.findFirstSamsungProduct().should(($div) => {
-            
-         expect($div.get(0).innerText).to.eq(expectedSamsungProduct)
-       })
+ 
      })
 
-    })
+    

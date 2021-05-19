@@ -3,7 +3,7 @@ import mainPage from '../Pages/mainPage';
 import productPage from '../Pages/productsPages/productPage';
 import bookPage from '../Pages/productsPages/bookPage';
 
-describe('Tests search', function(){
+describe('Tests books', function(){
     const mp = new mainPage()
     const pp = new productPage()
     const bp = new bookPage()
