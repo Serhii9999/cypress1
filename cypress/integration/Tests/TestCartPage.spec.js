@@ -4,6 +4,78 @@ import productPage from '../Pages/productPage';
 import cartPage from '../Pages/cartPage';
 
 
+
+describe('Test buttons', function(){
+    const mp = new mainPage()
+    const pp = new productPage()
+    const cp = new cartPage()
+   
+    beforeEach(() => {
+        cy.visit('')
+        mp.clickCartButton()
+      })
+
+      it('Test signUpButton ', function(){
+        cp.clickSignNowButton()
+        cy.get('h1').should(($div) => {
+              
+            expect($div.get(0).innerText).to.eq('Create account')
+          })
+        })
+
+        it('Test first signIn button ', function(){
+        cp.clickSignInToYourAccountButton()    
+        cy.url().as('url');
+      
+        cy.get('@url').should('contain', 'signin');
+
+        
+
+    })
+        it('Test bottom signIn button ', function(){
+        cp.clickBottomSignInButton()
+        cy.url().as('url');
+      
+        cy.get('@url').should('contain', 'signin');
+        })
+          
+  
+     
+
+
+
+      
+  
+
+    })
+
+describe('Test cart for being empty', function(){
+    const mp = new mainPage()
+    const pp = new productPage()
+    const cp = new cartPage()
+   
+    beforeEach(() => {
+        cy.visit('')
+        
+      })
+
+      it('Test cart is  empty ', function(){
+   
+        mp.clickCartButton()
+        cy.get('h2').should(($div) => {
+              
+          expect($div.get(0).innerText).to.eq('Your Amazon Cart is empty')
+        })
+          
+  
+      })
+
+
+
+
+    })
+
+
 describe('Tests', function(){
     const mp = new mainPage()
     const pp = new productPage()
@@ -18,9 +90,7 @@ describe('Tests', function(){
         cp.clickAddProductToCartButton()  
 
 
-
       })
-
 
     it('Test adding 1 item to a cart ', function(){
            
@@ -99,36 +169,11 @@ describe('Tests', function(){
           })
         
       })
-   
-
-      describe('Test cart for being empty', function(){
-        const mp = new mainPage()
-        const pp = new productPage()
-        const cp = new cartPage()
-       
-        beforeEach(() => {
-            cy.visit('')
-            
-          })
-
-          it('Test cart is  empty ', function(){
-       
-            mp.clickCartButton()
-            cy.get('h2').should(($div) => {
-                  
-              expect($div.get(0).innerText).to.eq('Your Amazon Cart is empty')
-            })
-              
-      
-          })
-        })
- 
-
- 
-        
-   
-
     })
+
+  
+
+  
 
   
 

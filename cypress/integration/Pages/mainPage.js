@@ -116,7 +116,7 @@ class mainPage{
     }
 
     clickRegistrationButton() {
-        cy.xpath('div[id="nav-flyout-ya-newCust"]/a').click()
+        cy.xpath(`//div[@id='nav-flyout-ya-newCust']/a`).click()
         
     }
     

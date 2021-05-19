@@ -1,11 +1,101 @@
 import * as _ from 'lodash';
 import mainPage from '../Pages/mainPage';
-import languagePage from '../Pages/languagePage';
-import productPage from '../Pages/productPage';
-import cartPage from '../Pages/cartPage';
 import accountPage from '../Pages/accountPage';
 
-describe('Tests', function(){
+
+describe('Tests for sign up', function(){
+    const mp = new mainPage()
+    const ap = new accountPage()
+
+    beforeEach(() => {
+        cy.visit('')
+        ap.hoverOnAccountButton()
+        mp.clickRegistrationButton()
+       
+
+
+    })
+
+    it('Test other buttons for existence', function(){
+        expect(ap.getConditionsOfUseButton()).to.exist
+        expect(ap.getPrivacyNoticeButton()).to.exist
+        expect(ap.getSignInOnSignUpPageButton()).to.exist
+        expect(ap.getCreateBusinessAccountButton()).to.exist
+
+
+
+    })
+    it('Test click on sign up when fields are empty', function(){
+        ap.clickRegistrationButton()
+        ap.getNameAlert().should(($div) => {
+            
+            expect($div.get(0).innerText).to.contain('Enter your name')
+            
+      
+})
+        ap.getEmailAlert().should(($div) => {
+            
+        expect($div.get(0).innerText).to.contain('Enter your email')
+    
+
+})
+        ap.getPasswordAlert().should(($div) => {
+            
+        expect($div.get(0).innerText).to.contain('Enter your password')
+    
+
+})
+        
+      
+        
+    })
+
+    
+    it('Test click on sign up button', function(){
+       
+        
+        cy.get('h1').should(($div) => {
+            
+            expect($div.get(0).innerText).to.contain('Create account')
+        
+})
+})
+
+
+    it('Test registration page for correct text under fields', function(){
+        ap.getYourNameTopText().should(($div) => {
+            
+            expect($div.get(0).innerText).to.contain('Your name')
+            
+      
+})
+
+        ap.getEmailTopText().should(($div) => {
+            
+             expect($div.get(0).innerText).to.contain('Email')
+    
+
+})
+
+        ap.getPasswordTopText().should(($div) => {
+            
+              expect($div.get(0).innerText).to.contain('Password')
+    
+
+})
+
+        ap.getRePasswordTopText().should(($div) => {
+            
+             expect($div.get(0).innerText).to.contain('Re-enter password')
+    
+
+})
+
+})
+})
+
+
+describe('Tests with sign in', function(){
     const mp = new mainPage()
     const ap = new accountPage()
 
@@ -23,8 +113,6 @@ describe('Tests', function(){
       })
 
       
-
-
     it('Test "your amazon" page availability', function(){
 
         

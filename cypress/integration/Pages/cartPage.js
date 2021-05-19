@@ -32,6 +32,20 @@ class cartPage{
         cy.get('input[name="proceedToRetailCheckout"]').click({force:true})
     }
 
+    clickSignNowButton() {
+        cy.get('#a-autoid-1-announce').click()
+        cy.wait(1000)
+    }
+    clickSignInToYourAccountButton() {
+        cy.get('#a-autoid-0-announce').click()
+        cy.wait(1000)
+    }
+    clickBottomSignInButton() {
+        cy.get('span[class="action-inner"]').click()
+        cy.wait(1000)
+    }
+    
+
     
 }
 export default cartPage
