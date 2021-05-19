@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 import mainPage from '../Pages/mainPage';
-import productPage from '../Pages/productPage';
+import productPage from '../Pages/productsPages/productPage';
 import cartPage from '../Pages/cartPage';
 
 

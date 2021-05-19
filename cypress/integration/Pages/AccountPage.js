@@ -1,5 +1,8 @@
 import * as _ from 'lodash';
 class accountPage{
+
+
+    
     enterEmailField(value) {
         cy.get('#ap_email').type(value)
         cy.wait(2000)

@@ -1,15 +1,7 @@
 
 import * as _ from 'lodash';
 class productPage {
-    getTitleOfTheFirstBook() {
-       
-        return cy.get('h2[class="a-size-mini a-spacing-none a-color-base s-line-clamp-4"]').first()
-         
-     }
-
-     getAuthorOfTheFirstBook() {
-         return cy.get('a[class="a-size-base a-link-normal"]').first()
-     }
+    
 
      click4StarsButton() {
          cy.get('i[class="a-icon a-icon-star-medium a-star-medium-4"]').click()
@@ -27,9 +19,7 @@ class productPage {
          cy.get('input[aria-labelledby="a-autoid-1-announce"]').click()
      }
 
-     findFirstSamsungProduct() {
-         return cy.get('span[class="a-size-base-plus a-color-base a-text-normal"]').first()
-     }
+     
 
      clickOnFirstProductOnThePage() {
          cy.get('img[data-image-index="1"]').click()
@@ -50,17 +40,8 @@ class productPage {
         cy.get('button[name="glowDoneButton"]').click()
     }
 
-    getBookTitle() {
-        return cy.get('h2[class="a-size-mini a-spacing-none a-color-base s-line-clamp-2"]')
-    }
-
-    clickGermanCheckBoxInBooksSection() {
-        cy.get('div[class="a-checkbox a-checkbox-fancy s-navigation-checkbox aok-float-left"]').eq(13).click()
-        cy.wait(1000)
-    }
-    getSportProductTitle() {
-       return cy.get('span[class="a-size-base-plus a-color-base a-text-normal"]')
-    }
+   
+  
     
     
 
